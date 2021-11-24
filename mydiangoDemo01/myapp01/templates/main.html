@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset = "UTF-8">
+        <title>index</title>
+    </head>
+    <body>
+        {% include "top.html" %}
+        <br>
+        <a href = "/user/goods">my shopping car</a>
+        <form action = "/test/adduserGoods">
+            <table>
+                <tr>
+                    <td>商品名称</td>
+                    <td>商品价格</td>
+                    <td>操作</td>
+                </tr>
+                {% for pro in pros%}
+                <tr>
+                    <td><input type = "checkbox" id = "pro_check" name = "proId" value = "{{pro.proId}}" />
+                    <td>{{pro.proName}}</td>
+                    <td>{{pro.proPrice}}</td>
+                    <td><a href = "../../test/adduserGoods?proId={{pro.proId}}">加入购物车</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+            <input type = "submit" value = "提交">
+        </form>
+    </body>
+</html>

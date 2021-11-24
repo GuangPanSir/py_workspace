@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset = "UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        显示商品 <br>
+        <table>
+            <tr>
+                <td>商品名称</td>
+                <td>商品单价</td>
+                <td>操作</td>
+            </tr>
+            {% for pro in pros%}
+            <tr>
+                <td>{{pro.proName}}</td>
+                <td>{{pro.proPrice}}</td>
+                <td><a href = "../../test/deleteuserGoods?proId={{pro.proId}}">删除商品</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>

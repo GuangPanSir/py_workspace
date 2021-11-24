@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset = "UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        {% include 'top.html' %}
+        显示数据{{userInfo}}<br>
+        {# 显示字典中的数据 #}
+        姓名：{{userInfo.name}} 年龄：{{userInfo.age}} 性别：{{userInfo.sex}}<br>
+        {# 显示list类型的数据 #}
+        {%for us in infos%}
+        <table border = "1" width = "50%" style = "table-layout:fixed;word-break:break-all;text-align:center">
+            <tr>
+                <td>姓名</td>
+                <td>性别</td>
+                <td>爱好</td>
+            </tr>
+            <tr>
+                <td>{{us.name}}</td>
+                <td>{{us.sex}}</td>
+                <td>
+                    {%for ho in us.hobby%}
+                    {{ho}}
+                    {%endfor%}
+                </td>
+            </tr>
+        </table>
+        {%endfor%}
+
+
+        <hr>
+        ---------if-----------
+        <br>{{userInfo.sex}}<br>
+        male<input type = "radio" name = "sex" {%if userInfo.sex == 'male'%} checked {%endif%}>
+        female<input type = "radio" name = "sex" {%if userInfo.sex == 'female'%} checked {%endif%}> <br>
+        {% if userInfo.age < 60 %}
+        小学生
+            {% else %}
+            老年人
+        {% endif %}
+        {% include 'bottom.html' %}
+    </body>
+</html>

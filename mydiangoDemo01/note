@@ -1,0 +1,36 @@
+1.创建Django项目
+	工作空间目录下 django-admin startproject projectName
+2.运行Django
+	python manage.py runserver port
+3.创建app
+	在创建的目录下 python manage.py startapp appName
+4.将自己创建的app配置到项目中
+	在项目的settings.py文件的INSTALL_APP中添加自己的项目
+5.编码
+	在app应用中定义视图函数
+	def function(req):
+		编写可执行代码
+		return render()/redirect()
+6.项目下的urls文件中配置url
+	1.在文件中引入自己的模块（可以使用别名)
+	from myapp01 import views as myViews
+7.访问自定义的视图函数
+	http://127.0.0.1:8000/url
+8.模板页面
+	在app应用中创建templates文件夹，在此文件夹中创建html文件
+9.数据交互
+	Views视图函数获取的方式
+	userAcc = request.GET.get('userAcc', None)  # 获得登录请求的信息
+	userAcc = request.GET.get('userAcc', None)  # 获得登录请求的信息
+
+
+Model:模型
+    1.配置数据库
+    2.在Django项目中Settings文件中配置数据库
+    3.在init中加入
+        import pymysql
+        pymysql.install_as_MySQLdb()
+    4.创建注册模型对象
+        python manage.py makemigrations
+    5.创建表
+        python manage.py migrate

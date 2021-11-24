@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset = "UTF-8">
+        <title>Login</title>
+    </head>
+    <body>
+        <form action = "/user/login" method = "get">
+            账号：<input type = "text" name = "userAcc" placeholder = "请输入账号" required><br>
+            密码: <input type = "password" name = "userPass"><br>
+            <input type = "submit" value = "登录">
+        </form>
+        <a href = "page/register.html"><input type = "submit" value = "注册" id = "register" onclick = ""></a>
+        {{error}}
+    </body>
+</html>
